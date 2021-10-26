@@ -1,11 +1,12 @@
 import React from 'react';
 import { Form, Row, Col, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class ReportSightForm extends React.Component {
 
   render() {
     return (
-      <Form>
+      <Form action="mailto:yiwenc22@gmail.com">
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formName">
             <Form.Label>Name</Form.Label>
@@ -19,7 +20,7 @@ class ReportSightForm extends React.Component {
 
           <Form.Group as={Col} controlId="formPhoneNumber">
             <Form.Label>PhoneNumber</Form.Label>
-            <Form.Control type="number" data-format="+1 (ddd) ddd-dddd" placeholder="(xxx)xxx-xxxx" />
+            <Form.Control type="tel" maxLength={10} maxpattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx" />
           </Form.Group>
         </Row>
 

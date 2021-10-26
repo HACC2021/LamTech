@@ -44,5 +44,5 @@ class Geo extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBSyPq3b7aPKAaQvIB-svECPPBDsGMCOPU',
+',
 })(Geo);

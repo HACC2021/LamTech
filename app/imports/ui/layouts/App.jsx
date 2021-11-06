@@ -17,6 +17,7 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import SelectAnimal from '../pages/SelectAnimal';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -27,6 +28,7 @@ class App extends React.Component {
           <NavBar/>
           <Switch>
             <Route exact path="/" component={Landing}/>
+            <Route exact path="/selectAnimal" component={SelectAnimal}/>
             <Route exact path="/reportForm" component={ReportSightForm}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>

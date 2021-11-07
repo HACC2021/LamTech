@@ -15,7 +15,7 @@ class ReportsCollection {
     this.schema = new SimpleSchema({
       animal: { label: 'Animal', type: String },
       name: { label: 'Name', type: String },
-      phoneNumber: { label: 'PhoneNumber', type: Number },
+      phoneNumber: { label: 'PhoneNumber', type: SimpleSchema.Integer },
       email: { label: 'Email', type: String },
       date: { label: 'Data', type: Date },
       location: { label: 'Location', type: String },
@@ -23,7 +23,7 @@ class ReportsCollection {
       latitude: { label: 'Latitude', type: Number, optional: true },
       behavior: { label: 'AnimalBehavior', type: String },
       characteristics: { label: 'Characteristics', type: String },
-      beachGoers: { label: 'NumberOfBeachGoer', type: Number },
+      beachGoers: { label: 'NumberOfBeachGoer', type: SimpleSchema.Integer },
       image: { label: 'Image', type: String, optional: true },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

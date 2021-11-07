@@ -41,7 +41,7 @@ class ReportForm extends React.Component {
   }
 
   render() {
-    return (this.props.ready) ? this.renderPage() : <Spinner>Getting data</Spinner>;
+    return (this.props.ready) ? this.renderPage() : <Spinner animation="border">Getting data</Spinner>;
   }
 
   renderPage() {
@@ -59,10 +59,10 @@ class ReportForm extends React.Component {
             <NumField name='phoneNumber' placeholder='8081234567' label='Phone#'/>
           </Form.Group>
           <Form.Group widths={'equal'}>
-            <DateField name='date' label='Date' value={this.date}/>
+            <DateField name='date' label='Date'/>
             <TextField name='location' placeholder='Address' label='Location'/>
-            <LongTextField name='behavior' placeholder='Extra info people need to know to join' label='Info'/>
-            <LongTextField name='characteristics' placeholder='Extra info people need to know to join' label='Info'/>
+            <LongTextField name='behavior' placeholder="Behavior of the animal and it's interaction with the envierment" label='Behavior'/>
+            <LongTextField name='characteristics' placeholder='Characteristics of the animal' label='Characteristics'/>
             <NumField name='beachGoers' placeholder='# of people around the animal' label='People Nearby'/>
           </Form.Group>
           <SubmitField color='green' value='Summit Report'/>

@@ -17,7 +17,7 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportForm">Report Sighting</Button>
+              <Button href="#/reportMonkSeal">Report Sighting</Button>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
@@ -29,7 +29,7 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportForm">Report Sighting</Button>
+              <Button href="#/reportSeaTurtle">Report Sighting</Button>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
@@ -41,7 +41,7 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportForm">Report Sighting</Button>
+              <Button href="#/reportSpinner">Report Sighting</Button>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
@@ -53,19 +53,20 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportForm">Report Sighting</Button>
+              <Button href="#/reportHumpBack">Report Sighting</Button>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="images/animals/Bird.jpg" />
             <Card.Body>
-              <Card.Title>Hawaii's Seabirds</Card.Title>
+              <Card.Title>Hawaii&apos;s Seabirds</Card.Title>
               <Card.Text>
-                Hawaii’s seabirds travel widely throughout the Pacific and are therefore very important sentinel species. Like “canaries in a coal mine," seabirds can help us understand ecosystem changes that not only affect the birds themselves but pose serious risks to humans.
+                {/* eslint-disable-next-line max-len */}
+                Hawaii’s seabirds travel widely throughout the Pacific and are therefore very important sentinel species. Like “canaries in a coal mine,&quot; seabirds can help us understand ecosystem changes that not only affect the birds themselves but pose serious risks to humans.
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportForm">Report Sighting</Button>
+              <Button href="#/reportSeaBird">Report Sighting</Button>
             </Card.Footer>
           </Card>
         </CardGroup>

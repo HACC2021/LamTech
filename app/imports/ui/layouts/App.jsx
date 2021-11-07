@@ -11,13 +11,17 @@ import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
-import ReportSightForm from '../pages/ReportSightForm';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import SelectAnimal from '../pages/SelectAnimal';
+import ReportMonkSeal from '../pages/ReportForms/ReportMonkSeal';
+import ReportSeaTurtle from '../pages/ReportForms/ReportSeaTurtle';
+import ReportSpinner from '../pages/ReportForms/ReportSpinner';
+import ReportHumpBack from '../pages/ReportForms/ReportHumpBack';
+import ReportSeaBird from '../pages/ReportForms/ReportSeaBird';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -29,7 +33,11 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Landing}/>
             <Route exact path="/selectAnimal" component={SelectAnimal}/>
-            <Route exact path="/reportForm" component={ReportSightForm}/>
+            <Route exact path="/reportMonkSeal" component={ReportMonkSeal}/>
+            <Route exact path="/reportSeaTurtle" component={ReportSeaTurtle}/>
+            <Route exact path="/reportSpinner" component={ReportSpinner}/>
+            <Route exact path="/reportHumpBack" component={ReportHumpBack}/>
+            <Route exact path="/reportSeaBird" component={ReportSeaBird}/>
             <Route path="/signin" component={Signin}/>
             <Route path="/signup" component={Signup}/>
             <Route path="/signout" component={Signout}/>

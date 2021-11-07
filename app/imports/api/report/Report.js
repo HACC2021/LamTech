@@ -13,16 +13,18 @@ class ReportsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
+      animal: { label: 'Animal', type: String },
       name: { label: 'Name', type: String },
-      date: { label: 'Data', type: Date },
-      location: { label: 'Address', type: String },
-      behavior: { label: 'AnimalBehavior', type: String },
-      characteristics: { label: 'characteristics', type: Array, optional: true },
-      'characteristics.$': { type: String,
-      },
-      beachGoers: { label: 'NumberOfBeachGoer', type: Number },
       phoneNumber: { label: 'PhoneNumber', type: Number },
-      image: { label: 'image', type: String },
+      email: { label: 'Email', type: String },
+      date: { label: 'Data', type: Date },
+      location: { label: 'Location', type: String },
+      longitude: { label: 'Longitude', type: Number, optional: true },
+      latitude: { label: 'Latitude', type: Number, optional: true },
+      behavior: { label: 'AnimalBehavior', type: String },
+      characteristics: { label: 'Characteristics', type: String },
+      beachGoers: { label: 'NumberOfBeachGoer', type: Number },
+      image: { label: 'Image', type: String, optional: true },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

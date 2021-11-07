@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, Button, Container, CardGroup } from 'react-bootstrap';
+import { Card, Container, CardGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
@@ -17,7 +18,15 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportMonkSeal">Report Sighting</Button>
+              <Link
+                className="btn btn-primary"
+                to={{
+                  pathname: '/reportSighting',
+                  animal: 'Hawaiian Monk Seals',
+                }}
+              >
+                Report Sighting
+              </Link>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
@@ -29,7 +38,15 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportSeaTurtle">Report Sighting</Button>
+              <Link
+                className="btn btn-primary"
+                to={{
+                  pathname: '/reportSighting',
+                  animal: 'Hawaii’s Sea Turtles',
+                }}
+              >
+                Report Sighting
+              </Link>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
@@ -41,7 +58,15 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportSpinner">Report Sighting</Button>
+              <Link
+                className="btn btn-primary"
+                to={{
+                  pathname: '/reportSighting',
+                  animal: 'Spinner Dolphins',
+                }}
+              >
+                Report Sighting
+              </Link>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
@@ -53,7 +78,15 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportHumpBack">Report Sighting</Button>
+              <Link
+                className="btn btn-primary"
+                to={{
+                  pathname: '/reportSighting',
+                  animal: 'Humpback Whales',
+                }}
+              >
+                Report Sighting
+              </Link>
             </Card.Footer>
           </Card>
           <Card style={{ width: '18rem' }}>
@@ -66,7 +99,15 @@ class Landing extends React.Component {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <Button href="#/reportSeaBird">Report Sighting</Button>
+              <Link
+                className="btn btn-primary"
+                to={{
+                  pathname: '/reportSighting',
+                  animal: "Hawaii's Seabirds",
+                }}
+              >
+                Report Sighting
+              </Link>
             </Card.Footer>
           </Card>
         </CardGroup>

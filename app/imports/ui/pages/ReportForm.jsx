@@ -15,14 +15,15 @@ import { withTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Reports } from '../../../api/report/Report';
+import { Reports } from '../../api/report/Report';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const bridge = new SimpleSchema2Bridge(Reports.schema);
 
-class ReportSeaBird extends React.Component {
+class ReportForm extends React.Component {
   constructor(props) {
     super(props);
+    this.date = new Date();
     this.state = { redirectToReferer: false };
   }
 
@@ -47,9 +48,10 @@ class ReportSeaBird extends React.Component {
     if (this.state.redirectToReferer) {
       return <Redirect to='/'/>;
     }
+    const { animal } = this.props.location;
     return (
       <Container>
-        <h1>Report Sighting</h1>
+        <h1>Report Sighting of {animal}</h1>
         <AutoForm schema={bridge} onSubmit={data => this.submit(data)}>
           <Form.Group widths={'equal'}>
             <TextField name='name' placeholder='John Doe' label='Name'/>
@@ -57,7 +59,7 @@ class ReportSeaBird extends React.Component {
             <NumField name='phoneNumber' placeholder='8081234567' label='Phone#'/>
           </Form.Group>
           <Form.Group widths={'equal'}>
-            <DateField name='date' placeholder='MM/DD/YYYY' label='Date'/>
+            <DateField name='date' label='Date' value={this.date}/>
             <TextField name='location' placeholder='Address' label='Location'/>
             <LongTextField name='behavior' placeholder='Extra info people need to know to join' label='Info'/>
             <LongTextField name='characteristics' placeholder='Extra info people need to know to join' label='Info'/>
@@ -66,7 +68,7 @@ class ReportSeaBird extends React.Component {
           <SubmitField color='green' value='Summit Report'/>
           <Button color='red' as={NavLink} exact to="/selectAnimal">Cancel</Button>
           <ErrorsField/>
-          <HiddenField name='animal' value={'Hawaii\'s Seabirds'}/>
+          <HiddenField name='animal' value={animal}/>
           <HiddenField name='longitude' value={1}/>
           <HiddenField name='latitude' value={1}/>
           <HiddenField name='image' value={'temp'}/>
@@ -76,8 +78,12 @@ class ReportSeaBird extends React.Component {
   }
 }
 
-ReportSeaBird.propTypes = {
+ReportForm.propTypes = {
   ready: PropTypes.bool.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+    animal: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default withTracker(() => {
@@ -86,4 +92,4 @@ export default withTracker(() => {
   return {
     ready,
   };
-})(ReportSeaBird);
+})(ReportForm);

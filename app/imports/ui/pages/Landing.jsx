@@ -8,7 +8,6 @@ class Landing extends React.Component {
   render() {
     return (
       <Container>
-        <Geo/>
         <div className="text-center">
           <Image src="images/landing.jpg" fluid/>
           <Button className="btn btn-primary btn-lg" href="#/selectAnimal">Report A Sighting</Button>

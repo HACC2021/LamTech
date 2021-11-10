@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Icon, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
+import { Image } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AdminReportItems extends React.Component {
@@ -19,7 +20,7 @@ class AdminReportItems extends React.Component {
         <Table.HeaderCell>{this.props.report.behavior}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.characteristics}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.beachGoers}</Table.HeaderCell>
-        <Table.HeaderCell>{this.props.report.image}</Table.HeaderCell>
+        <Table.HeaderCell><Image width={180} height={180} src={this.props.report.image}/></Table.HeaderCell>
       </Table.Row>
     );
   }

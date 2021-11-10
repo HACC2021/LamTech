@@ -13,10 +13,6 @@ class NavBar extends React.Component {
       <Navbar fixed="top" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand className='navbar' href="/" >LamsTech</Navbar.Brand>
-          {this.props.currentUser ? (
-            [<Nav.Link href="/add" key='add'>Add Stuff</Nav.Link>,
-              <Nav.Link href="/list" key='list'>List Stuff</Nav.Link>]
-          ) : ''}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>
           ) : ''}

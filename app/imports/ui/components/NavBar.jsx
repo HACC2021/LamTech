@@ -18,7 +18,7 @@ class NavBar extends React.Component {
               <Nav.Link href="/list" key='list'>List Stuff</Nav.Link>]
           ) : ''}
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Nav.Link href="/admin" key='admin'>Admin</Nav.Link>
+            <Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>
           ) : ''}
           <Nav className="justify-content-end">
             {this.props.currentUser === '' ? (

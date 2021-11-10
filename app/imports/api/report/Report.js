@@ -17,13 +17,13 @@ class ReportsCollection {
       name: { label: 'Name', type: String },
       phoneNumber: { label: 'PhoneNumber', type: SimpleSchema.Integer },
       email: { label: 'Email', type: String },
-      date: { label: 'Data', type: Date },
+      date: { label: 'Data', type: Date, optional: true },
       location: { label: 'Location', type: String },
       longitude: { label: 'Longitude', type: Number, optional: true },
       latitude: { label: 'Latitude', type: Number, optional: true },
       behavior: { label: 'AnimalBehavior', type: String },
       characteristics: { label: 'Characteristics', type: String },
-      beachGoers: { label: 'NumberOfBeachGoer', type: SimpleSchema.Integer },
+      beachGoers: { label: 'NumberOfBeachGoer', type: SimpleSchema.Integer, optional: true },
       image: { label: 'Image', type: String, optional: true },
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

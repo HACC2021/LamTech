@@ -9,5 +9,10 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultReport": [
+    { "animal": "sea turtle","name": "chakhon", "phoneNumber": "123123", "email": "123123@aw.com", "location": "123123", "behavior": "123123", "characteristics": "123123" }
   ]
+
 }

@@ -9,7 +9,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
+import AdminReports from '../pages/AdminReports';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -36,7 +36,7 @@ class App extends React.Component {
             <ProtectedRoute path="/list" component={ListStuff}/>
             <ProtectedRoute path="/add" component={AddStuff}/>
             <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-            <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+            <AdminProtectedRoute path="/admin" component={AdminReports}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer/>

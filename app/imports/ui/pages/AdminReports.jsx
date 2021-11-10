@@ -48,7 +48,7 @@ AdminReports.propTypes = {
 };
 
 export default withTracker(() => {
-  const subscription = Meteor.subscribe(Reports.userPublicationName);
+  const subscription = Meteor.subscribe(Reports.adminPublicationName);
   const ready = subscription.ready();
   const report = Reports.collection.find({}).fetch();
   return {

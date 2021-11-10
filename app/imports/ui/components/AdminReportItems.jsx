@@ -1,27 +1,26 @@
 import React from 'react';
-import { Table, Icon } from 'semantic-ui-react';
+import { Table, Icon, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class AdminReportItems extends React.Component {
-  handleClick(id) {
-    Event.collection.remove(id);
-  }
+
   render() {
     return (
-        <Table.Row>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
-          <Table.HeaderCell><Icon className='trashCan' size='small' color='red' onClick={() => this.handleClick(this.props.report._id)} name='trash'/></Table.HeaderCell>
-        </Table.Row>
+      <Table.Row>
+        <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.name}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.phoneNumber}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.date}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.email}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.location}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.longitude}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.latitude}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.behavior}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.characteristics}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.beachGoers}</Table.HeaderCell>
+        <Table.HeaderCell>{this.props.report.image}</Table.HeaderCell>
+      </Table.Row>
     );
   }
 }
@@ -43,4 +42,4 @@ AdminReportItems.propTypes = {
   }).isRequired,
 };
 
-export default withRouter(AdminReportItems);
+export default AdminReportItems;

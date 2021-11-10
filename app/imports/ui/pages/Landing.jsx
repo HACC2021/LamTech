@@ -19,6 +19,7 @@ class Landing extends React.Component {
             <div>
               <Button className="btn btn-primary btn-lg" href="#/selectAnimal"><MDBIcon icon="eye"/>Report A Sighting</Button>
               <p className="h4">Or</p>
+              <p className="h4">Find Anmial is Distress?</p>
               <a className="h4" href="tel:8882569840">Call us at 888-256-9840</a>
             </div>
           </Col>

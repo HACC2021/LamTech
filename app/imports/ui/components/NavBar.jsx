@@ -28,7 +28,7 @@ class NavBar extends React.Component {
               </NavDropdown>
             ) : (
               <NavDropdown id="navbar-current-user" title={this.props.currentUser} icon={'user'}>
-                <NavDropdown.Item id="navbar-sign-out" icon="sign out" href="#/signout">Sign Out</NavDropdown.Item>
+                <NavDropdown.Item id="navbar-sign-out" icon="sign out" href="#/signout" >Sign Out</NavDropdown.Item>
               </NavDropdown>
             )}
           </Nav>

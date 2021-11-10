@@ -11,7 +11,7 @@ class AdminReportItems extends React.Component {
         <Table.HeaderCell>{this.props.report.animal}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.name}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.phoneNumber}</Table.HeaderCell>
-        <Table.HeaderCell>{this.props.report.date}</Table.HeaderCell>
+        <Table.HeaderCell>{new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short' }).format(this.props.report.date)}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.email}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.location}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.longitude}</Table.HeaderCell>

@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Form, Button, Container, Spinner } from 'react-bootstrap';
+import { Form, Button, Container, Spinner, Image } from 'react-bootstrap';
 import {
-  AutoForm, DateField,
+  AutoForm,
   ErrorsField,
   NumField,
   LongTextField,
@@ -11,7 +11,6 @@ import {
 
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
-import { Tracker } from 'meteor/tracker';
 import { withTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { NavLink, Redirect } from 'react-router-dom';
@@ -32,11 +31,23 @@ class ReportForm extends React.Component {
       address: '',
       lat: '',
       lng: '',
+      image: '',
       redirectToReferer: false,
     };
 
+    this.onImageChange = this.onImageChange.bind(this);
     this.getAddress = this.getAddress.bind(this);
   }
+
+  onImageChange = event => {
+    if (event.target.files && event.target.files[0]) {
+      const img = event.target.files[0];
+      const image = URL.createObjectURL(img);
+      this.setState({
+        image: image,
+      });
+    }
+  };
 
   getAddress() {
     let lat;
@@ -86,6 +97,15 @@ class ReportForm extends React.Component {
     return (
       <Container>
         <h1>Report Sighting of {animal}</h1>
+        <Image src={this.state.image}/>
+        <Form.Group widths={'equal'}>
+          <Form.Label>Upload a image</Form.Label>
+          <Form.Control
+            type="file"
+            accept="image/png, image/jpeg"
+            onChange={this.onImageChange}
+          />
+        </Form.Group>
         <AutoForm schema={bridge} onSubmit={data => this.submit(data)}>
           <Form.Group widths={'equal'}>
             <TextField name='name' placeholder='John Doe' label='Name'/>
@@ -107,7 +127,7 @@ class ReportForm extends React.Component {
           <HiddenField name='location' value={this.state.address}/>
           <HiddenField name='latitude' value={this.state.lat}/>
           <HiddenField name='longitude' value={this.state.lng}/>
-          <HiddenField name='image' value={'temp'}/>
+          <HiddenField name="image" value={this.state.image}/>
         </AutoForm>
       </Container>
     );

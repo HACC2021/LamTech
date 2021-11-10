@@ -21,7 +21,7 @@ import { Reports } from '../../api/report/Report';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const bridge = new SimpleSchema2Bridge(Reports.schema);
-Geocode.setApiKey('AIzaSyA0yDWuSMYdJgZfWJDIUqnKIZ1srGq0a5Y');
+Geocode.setApiKey('');
 
 class ReportForm extends React.Component {
   constructor(props) {
@@ -64,6 +64,8 @@ class ReportForm extends React.Component {
           address = response.results[0].formatted_address;
           this.setState({ address });
           console.log(address);
+          console.log(lat);
+          console.log(lng);
         },
         (error) => {
           console.error(error);
@@ -95,7 +97,7 @@ class ReportForm extends React.Component {
       return <Redirect to='/'/>;
     }
     return (
-      <Container>
+      <Container className='AdminPage'>
         <h1>Report Sighting of {animal}</h1>
         <Image src={this.state.image}/>
         <Form.Group widths={'equal'}>
@@ -120,6 +122,7 @@ class ReportForm extends React.Component {
             <NumField name='beachGoers' placeholder='# of people around the animal' label='People Nearby'/>
           </Form.Group>
           <SubmitField color='green' value='Summit Report'/>
+          <br></br>
           <Button color='red' as={NavLink} exact to="/selectAnimal">Cancel</Button>
           <ErrorsField/>
           <HiddenField name='animal' value={animal}/>

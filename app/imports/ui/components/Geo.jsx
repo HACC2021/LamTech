@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Header, Loader, Button } from 'semantic-ui-react';
+import { Container, Header, Loader, Button, Input } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { GoogleMap, InfoWindow, Marker, useLoadScript } from '@react-google-maps/api';
 
@@ -9,8 +9,8 @@ const containerStyle = {
 };
 
 const test = {
-  lat: 21.5,
-  lng: -158,
+  lat: 21.3484499,
+  lng: -157.916605,
 };
 
 const center = {
@@ -25,7 +25,7 @@ const Geo = ({ }) => {
   const [selected, setSelected] = useState(null);
   return (
     <Container>
-      <Header>Filter</Header>
+      <Header>Filter   <Input placeholder='Animal Name'/></Header>
       { isLoaded ?
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -43,7 +43,7 @@ const Geo = ({ }) => {
               onCloseClick={() => { setSelected(null); }}
             >
               <div>
-                <Header>Lam was spotted here</Header>
+                <Header>Hawaii's Sea Turtles Reported Here</Header>
                 <Button>View Submitted Form</Button>
               </div>
             </InfoWindow>
@@ -56,6 +56,7 @@ const Geo = ({ }) => {
 };
 
 Geo.propTypes = {
+
 };
 
 export default Geo;

@@ -8,23 +8,16 @@ import Geo from '../components/Geo';
 class Landing extends React.Component {
   render() {
     return (
-      <Container fluid className="position-absolute top-50 start-50 translate-middle">
-        <Row>
-          <Col>
-            <div className="text-center">
-              <Image src="images/landing.jpg" fluid/>
-            </div>
-          </Col>
-          <Col>
-            <div>
-              <Button className="btn btn-primary btn-lg" href="#/selectAnimal"><MDBIcon icon="eye"/>Report A Sighting</Button>
-              <p className="h4">Or</p>
-              <p className="h4">Find Anmial is Distress?</p>
-              <a className="h4" href="tel:8882569840">Call us at 888-256-9840</a>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+        <Container className="landing">
+          <Image src="images/landing.jpg" fluid/>
+          <div className="reportcss">
+            <Button className="btn btn-primary btn-lg" href="#/selectAnimal">Report a Sighting</Button>
+            <p className="h4">Or</p>
+            <p className="h4">Animal is Distress?</p>
+            <a className="h4" href="tel:8882569840">Call us at 888-256-9840</a>
+          </div>
+        </Container>
+
     );
   }
 }

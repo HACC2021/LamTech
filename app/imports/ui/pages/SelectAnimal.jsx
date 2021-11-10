@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class Landing extends React.Component {
   render() {
     return (
-      <Container>
+      <Container className='AdminPage'>
         <CardGroup>
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="images/animals/Monk1-min.jpg" />

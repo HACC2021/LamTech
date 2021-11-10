@@ -42,11 +42,11 @@ export default class Signin extends React.Component {
     }
     // Otherwise return the Login form.
     return (
-      <Container id="signin-page">
+      <Container className='AdminPage'>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
-              Login to your account
+              Login to your Admin Account
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
@@ -73,9 +73,6 @@ export default class Signin extends React.Component {
                 <Form.Button id="signin-form-submit" content="Submit"/>
               </Segment>
             </Form>
-            <Message>
-              <Link to="/signup">Click here to Register</Link>
-            </Message>
             {this.state.error === '' ? (
               ''
             ) : (

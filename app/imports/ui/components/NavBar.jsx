@@ -10,26 +10,26 @@ import { Roles } from 'meteor/alanning:roles';
 class NavBar extends React.Component {
   render() {
     return (
-      <Navbar fixed="top" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand className='navbar' href="/" >LamsTech</Navbar.Brand>
-          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>
-          ) : ''}
-          <Nav className="justify-content-end">
-            {this.props.currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title="Login" icon={'user'}>
-                <NavDropdown.Item id="login-dropdown-sign-in" icon="user" href="#/signin">Sign In</NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-up" icon="add user" href="#/signup">Sign Up</NavDropdown.Item>
-              </NavDropdown>
-            ) : (
-              <NavDropdown id="navbar-current-user" title={this.props.currentUser} icon={'user'}>
-                <NavDropdown.Item id="navbar-sign-out" icon="sign out" href="#/signout" >Sign Out</NavDropdown.Item>
-              </NavDropdown>
-            )}
-          </Nav>
-        </Container>
-      </Navbar>
+        <Navbar fixed="top" bg="dark" variant="dark">
+          <Container>
+            <Navbar.Brand className='navbar' href="/" >LamsTech</Navbar.Brand>
+            {this.props.currentUser ? (
+                []
+            ) : ''}
+            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+                <Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>
+            ) : ''}
+            <Nav className="justify-content-end">
+              {this.props.currentUser === '' ? (
+                  <Navbar.Brand title="Login" icon={'user'} href="#/signin">Admin Login</Navbar.Brand>
+              ) : (
+                  <NavDropdown id="navbar-current-user" title={this.props.currentUser} icon={'user'}>
+                    <NavDropdown.Item id="navbar-sign-out" icon="sign out" href="#/signout" >Sign Out</NavDropdown.Item>
+                  </NavDropdown>
+              )}
+            </Nav>
+          </Container>
+        </Navbar>
     );
   }
 }

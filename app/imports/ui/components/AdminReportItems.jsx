@@ -19,8 +19,6 @@ class AdminReportItems extends React.Component {
         <Table.HeaderCell>{new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short' }).format(this.props.report.date)}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.email}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.location}</Table.HeaderCell>
-        <Table.HeaderCell>{this.props.report.longitude}</Table.HeaderCell>
-        <Table.HeaderCell>{this.props.report.latitude}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.behavior}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.characteristics}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.beachGoers}</Table.HeaderCell>

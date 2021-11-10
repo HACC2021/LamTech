@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { exportcsv } from 'meteor/lfergon:exportcsv';
 import { Reports } from '../../api/report/Report';
 import AdminReportItems from '../components/AdminReportItems';
+import Geo from '../components/Geo';
 
 /** A simple static component to render some text for the landing page. */
 class AdminReports extends React.Component {
@@ -25,8 +26,9 @@ class AdminReports extends React.Component {
 
   renderPage() {
     return (
-      <div>
-        <Header as="h1" textAlign="center">Check In History/Status</Header>
+      <div className='AdminPage'>
+        <Geo/>
+        <Header as="h1" textAlign="center">Submitted Forms</Header>
         <Container>
           <Table padded>
             <Table.Header>
@@ -37,8 +39,6 @@ class AdminReports extends React.Component {
                 <Table.HeaderCell>Time of Report</Table.HeaderCell>
                 <Table.HeaderCell>Email</Table.HeaderCell>
                 <Table.HeaderCell>Location of Report</Table.HeaderCell>
-                <Table.HeaderCell>Longitude</Table.HeaderCell>
-                <Table.HeaderCell>Latitude</Table.HeaderCell>
                 <Table.HeaderCell>Behavior</Table.HeaderCell>
                 <Table.HeaderCell>Characteristics of the Animal</Table.HeaderCell>
                 <Table.HeaderCell>Number of Beach Goers NearBy</Table.HeaderCell>

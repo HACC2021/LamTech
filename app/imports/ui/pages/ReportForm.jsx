@@ -11,22 +11,54 @@ import {
 
 } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
+import { Tracker } from 'meteor/tracker';
 import { withTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { NavLink, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Geocode from 'react-geocode';
+import { Geolocation } from 'meteor/mdg:geolocation';
 import { Reports } from '../../api/report/Report';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Geocode from "react-geocode";
 
 const bridge = new SimpleSchema2Bridge(Reports.schema);
-Geocode.setApiKey("");
+Geocode.setApiKey('AIzaSyA0yDWuSMYdJgZfWJDIUqnKIZ1srGq0a5Y');
 
 class ReportForm extends React.Component {
   constructor(props) {
     super(props);
-    this.date = new Date();
-    this.state = { redirectToReferer: false };
+    this.state = {
+      date: new Date(),
+      address: '',
+      lat: '',
+      lng: '',
+      redirectToReferer: false,
+    };
+
+    this.getAddress = this.getAddress.bind(this);
+  }
+
+  getAddress() {
+    let lat;
+    let lng;
+    let address;
+    const latLng = Geolocation.latLng();
+    // Initialize the map once we have the latLng.
+    if (latLng != null) {
+      lat = latLng.lat;
+      lng = latLng.lng;
+      this.setState({ lat, lng });
+      Geocode.fromLatLng(lat, lng).then(
+        (response) => {
+          address = response.results[0].formatted_address;
+          this.setState({ address });
+          console.log(address);
+        },
+        (error) => {
+          console.error(error);
+        },
+      );
+    }
   }
 
   submit(data) {
@@ -40,56 +72,17 @@ class ReportForm extends React.Component {
           this.setState({ redirectToReferer: true });
         }
       });
-
-    Geocode.fromAddress("2996 Ala ilima Street").then(
-        (response) => {
-          const { lat, lng } = response.results[0].geometry.location;
-          console.log(lat, lng);
-        },
-        (error) => {
-          console.error(error);
-        }
-    );
-
-    Geocode.fromLatLng("21.3454613", "-157.9054008").then(
-        (response) => {
-          const address = response.results[0].formatted_address;
-          let city, state, country;
-          for (let i = 0; i < response.results[0].address_components.length; i++) {
-            for (let j = 0; j < response.results[0].address_components[i].types.length; j++) {
-              switch (response.results[0].address_components[i].types[j]) {
-                case "locality":
-                  city = response.results[0].address_components[i].long_name;
-                  break;
-                case "administrative_area_level_1":
-                  state = response.results[0].address_components[i].long_name;
-                  break;
-                case "country":
-                  country = response.results[0].address_components[i].long_name;
-                  break;
-              }
-            }
-          }
-          console.log(city, state, country);
-          console.log(address);
-        },
-        (error) => {
-          console.error(error);
-        }
-    );
-
-    console.log(Geolocation.currentLocation());
   }
 
   render() {
-    return (this.props.ready) ? this.renderPage() : <Spinner animation="border">Getting data</Spinner>;
+    return (this.props.ready) ? this.renderPage() : <Spinner animation="border"/>;
   }
 
   renderPage() {
-    if (this.state.redirectToReferer) {
+    const { animal } = this.props.location;
+    if (this.state.redirectToReferer || animal === undefined) {
       return <Redirect to='/'/>;
     }
-    const { animal } = this.props.location;
     return (
       <Container>
         <h1>Report Sighting of {animal}</h1>
@@ -100,8 +93,8 @@ class ReportForm extends React.Component {
             <NumField name='phoneNumber' placeholder='8081234567' label='Phone#'/>
           </Form.Group>
           <Form.Group widths={'equal'}>
-            <DateField name='date' label='Date'/>
-            <TextField name='location' placeholder='Address' label='Location'/>
+            <Button onClick={this.getAddress}>Get Current Location</Button>
+            <h3>Your current location is: {this.state.address}</h3>
             <LongTextField name='behavior' placeholder="Behavior of the animal and it's interaction with the envierment" label='Behavior'/>
             <LongTextField name='characteristics' placeholder='Characteristics of the animal' label='Characteristics'/>
             <NumField name='beachGoers' placeholder='# of people around the animal' label='People Nearby'/>
@@ -110,8 +103,10 @@ class ReportForm extends React.Component {
           <Button color='red' as={NavLink} exact to="/selectAnimal">Cancel</Button>
           <ErrorsField/>
           <HiddenField name='animal' value={animal}/>
-          <HiddenField name='longitude' value={1}/>
-          <HiddenField name='latitude' value={1}/>
+          <HiddenField name='date' value={this.state.date}/>
+          <HiddenField name='location' value={this.state.address}/>
+          <HiddenField name='latitude' value={this.state.lat}/>
+          <HiddenField name='longitude' value={this.state.lng}/>
           <HiddenField name='image' value={'temp'}/>
         </AutoForm>
       </Container>

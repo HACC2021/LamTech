@@ -37,13 +37,13 @@ class AdminReports extends React.Component {
                 <Table.HeaderCell>Time of Report</Table.HeaderCell>
                 <Table.HeaderCell>Email</Table.HeaderCell>
                 <Table.HeaderCell>Location of Report</Table.HeaderCell>
-                <Table.HeaderCell>Behavior of Animal</Table.HeaderCell>
                 <Table.HeaderCell>Longitude</Table.HeaderCell>
                 <Table.HeaderCell>Latitude</Table.HeaderCell>
                 <Table.HeaderCell>Behavior</Table.HeaderCell>
                 <Table.HeaderCell>Characteristics of the Animal</Table.HeaderCell>
                 <Table.HeaderCell>Number of Beach Goers NearBy</Table.HeaderCell>
                 <Table.HeaderCell>Picture of the Animal</Table.HeaderCell>
+                <Table.HeaderCell>Delete</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>

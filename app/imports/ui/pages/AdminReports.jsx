@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { exportcsv } from 'meteor/lfergon:exportcsv';
+import { CSVLink } from 'react-csv';
 import { Reports } from '../../api/report/Report';
 import AdminReportItems from '../components/AdminReportItems';
 import Geo from '../components/Geo';
@@ -14,15 +14,6 @@ class AdminReports extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  // handleClick() {
-  //  const exportFile = exportcsv.exportToCSV(this.props.report, true, ';');
-  // const nameFile = 'fileDownloaded.csv';
-  //  if (exportFile) {
-  //   const link = URL.createObjectURL(exportFile);
-  //   console.log(link);
-  //   exportcsv.saveAs(link, nameFile);
-  // }
-  // }
 
   renderPage() {
     return (
@@ -50,7 +41,14 @@ class AdminReports extends React.Component {
               {this.props.report.map((reports) => <AdminReportItems key={reports._id} report={reports} />)}
             </Table.Body>
           </Table>
-          <button>Export to .csv</button>
+          <CSVLink
+            data={this.props.report}
+            onClick={() => {
+              console.log('You click the link'); // 👍🏻 Your click handling logic
+            }}
+          >
+            Download me
+          </CSVLink>
         </Container>
       </div>
     );

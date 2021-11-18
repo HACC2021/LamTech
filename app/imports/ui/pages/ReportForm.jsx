@@ -33,10 +33,12 @@ class ReportForm extends React.Component {
       lat: '',
       lng: '',
       image: '',
+      check: false,
       redirectToReferer: false,
     };
 
     this.onImageChange = this.onImageChange.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
     this.getAddress = this.getAddress.bind(this);
   }
 
@@ -49,6 +51,10 @@ class ReportForm extends React.Component {
       });
     }
   };
+
+  handleCheck(evt) {
+    this.setState({ check: evt.target.checked });
+  }
 
   getAddress() {
     let lat;
@@ -83,16 +89,26 @@ class ReportForm extends React.Component {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Report submitted successfully', 'success');
+          Meteor.call(
+            'sendEmail',
+            'LamTech <lamtechmailguy@gmail.com>',
+            'lamtechmailguy@gmail.com',
+            (`A new ${animal} sighting has been reported`),
+            (`Animal: ${animal}\n
+            Reporter: ${name}\n
+            Reporter phone#: ${phoneNumber}\n
+            Reporter email: ${email}\n
+            Date: ${new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short' }).format(date)}\n
+            Location: ${location}\n
+            Coordinate: ${latitude}, ${longitude}\n
+            Behavior: ${behavior}\n
+            Characteristics: ${characteristics}\n
+            # of onlookers: ${beachGoers}\n
+            `),
+          );
           this.setState({ redirectToReferer: true });
         }
       });
-    Meteor.call(
-      'sendEmail',
-      'LamTech <lamtechmailguy@gmail.com>',
-      'bob@example.com',
-      'Hello from Meteor!',
-      'This is a test of Email.send.',
-    );
   }
 
   render() {
@@ -129,8 +145,19 @@ class ReportForm extends React.Component {
             <LongTextField name='characteristics' placeholder='Characteristics of the animal' label='Characteristics'/>
             <NumField name='beachGoers' placeholder='# of people around the animal' label='People Nearby'/>
           </Form.Group>
-          <SubmitField color='green' value='Summit Report'/>
-          <br></br>
+          <Form.Group>
+            <Form.Check type="checkbox" label="Animal is not injured" checked={this.state.check} onChange={this.handleCheck}/>
+          </Form.Group>
+          {
+            this.state.check ? <SubmitField color='green' value='Summit Report'/> :
+              (
+                <Form.Group>
+                  <p className="h4">If the animal is injured please call immediately</p>
+                  <a className="h4" href="tel:8882569840">Call us at 888-256-9840</a>
+                </Form.Group>
+              )
+          }
+          <br/>
           <Button color='red' as={NavLink} exact to="/selectAnimal">Cancel</Button>
           <ErrorsField/>
           <HiddenField name='animal' value={animal}/>

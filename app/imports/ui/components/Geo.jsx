@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container, Header, Loader, Button, Input } from 'semantic-ui-react';
-import PropTypes from 'prop-types';
 import { GoogleMap, InfoWindow, Marker, useLoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -18,7 +17,7 @@ const center = {
   lng: -158,
 };
 
-const Geo = ({ }) => {
+const Geo = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: '',
   });
@@ -43,7 +42,7 @@ const Geo = ({ }) => {
               onCloseClick={() => { setSelected(null); }}
             >
               <div>
-                <Header>Hawaii's Sea Turtles Reported Here</Header>
+                <Header>Hawaii&apos;s Sea Turtles Reported Here</Header>
                 <Button>View Submitted Form</Button>
               </div>
             </InfoWindow>

@@ -14,7 +14,6 @@ class AdminReports extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-
   renderPage() {
     return (
       <div className='AdminPage'>

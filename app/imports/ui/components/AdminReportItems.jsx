@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Icon} from 'semantic-ui-react';
+import { Table, Icon } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-bootstrap';
 import { Reports } from '../../api/report/Report';

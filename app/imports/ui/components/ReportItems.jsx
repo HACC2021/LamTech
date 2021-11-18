@@ -30,7 +30,7 @@ class ReportItems extends React.Component {
           <Header as='h5' textAlign='left'>Number of Beach Goers nearBy: {this.props.report.beachGoers}</Header>
         </GridRow>
         <GridRow>
-          <Header as='h5' textAlign='left'>Picture of the Animal: {this.props.report.image}</Header>
+          <Image as='h5' textAlign='left'>Picture of the Animal: {this.props.report.image}</Image>
         </GridRow>
       </Grid>
     );

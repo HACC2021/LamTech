@@ -26,6 +26,7 @@ Geocode.setApiKey('');
 class ReportForm extends React.Component {
   constructor(props) {
     super(props);
+    this.getAddress();
     this.state = {
       date: new Date(),
       address: '',
@@ -85,6 +86,13 @@ class ReportForm extends React.Component {
           this.setState({ redirectToReferer: true });
         }
       });
+    Meteor.call(
+      'sendEmail',
+      'LamTech <lamtechmailguy@gmail.com>',
+      'bob@example.com',
+      'Hello from Meteor!',
+      'This is a test of Email.send.',
+    );
   }
 
   render() {

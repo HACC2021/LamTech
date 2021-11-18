@@ -1,5 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import { Email } from 'meteor/email';
+import { check } from 'meteor/check';
+
+if (Meteor.isServer) {
+  Meteor.startup(() => {
+    process.env.MAIL_URL = 'smtps://lamtechmailguy@gmail.com:tbbmtfutvcyslwre@smtp.gmail.com:465/';
+  });
+}
 
 Meteor.methods({
   sendEmail(to, from, subject, text) {
@@ -11,5 +18,5 @@ Meteor.methods({
     this.unblock();
 
     Email.send({ to, from, subject, text });
-  }
+  },
 });

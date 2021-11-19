@@ -12,10 +12,7 @@ class NavBar extends React.Component {
     return (
       <Navbar fixed="top" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand className='navbar' href="/" >LamsTech</Navbar.Brand>
-          {this.props.currentUser ? (
-            []
-          ) : ''}
+          <Navbar.Brand className='navbar' href="#/" >LamsTech</Navbar.Brand>
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>
           ) : ''}

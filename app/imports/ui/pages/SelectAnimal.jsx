@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 class Landing extends React.Component {
   render() {
     return (
-      <Container className='AdminPage'>
+      <Container className='SelectPage'>
+        <h1>Which of those animal was sighted?</h1>
         <CardGroup>
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src="images/animals/Monk1-min.jpg" />
@@ -111,6 +112,8 @@ class Landing extends React.Component {
             </Card.Footer>
           </Card>
         </CardGroup>
+        <br/>
+        <a className='backhomeText' href="/">Back to Homepage</a>
       </Container>
     );
   }

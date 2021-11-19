@@ -111,7 +111,7 @@ class AdminReports extends React.Component {
               console.log('You click the link');
             }}
           >
-            Download me
+            Export Data as CSV
           </CSVLink>
         </Container>
       </div>

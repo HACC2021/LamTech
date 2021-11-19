@@ -4,8 +4,13 @@ import React from 'react';
 class Footer extends React.Component {
   render() {
     return (
-      <footer>
-      </footer>
+          <footer className='footer'>
+            <div className="ui center aligned container" >
+              <a  className='footerText' href="#/signin">Staff/Admin Login</a>
+              <br/>
+              Website Designed by LamTech
+            </div>
+          </footer>
     );
   }
 }

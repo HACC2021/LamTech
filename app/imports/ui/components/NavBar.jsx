@@ -10,23 +10,14 @@ import { Roles } from 'meteor/alanning:roles';
 class NavBar extends React.Component {
   render() {
     return (
-      <Navbar fixed="top" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand className='navbar' href="#/" >LamsTech</Navbar.Brand>
+        <div>
           {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            <Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>
+            [<Navbar fixed="top" bg="black" variant="dark">
+              <Container><Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>,
+              <Nav.Link href="#/signout" key='admin'>Sign Out</Nav.Link></Container>
+            </Navbar>]
           ) : ''}
-          <Nav className="justify-content-end">
-            {this.props.currentUser === '' ? (
-              <Navbar.Brand title="Login" icon={'user'} href="#/signin">Admin Login</Navbar.Brand>
-            ) : (
-              <NavDropdown id="navbar-current-user" title={this.props.currentUser} icon={'user'}>
-                <NavDropdown.Item id="navbar-sign-out" icon="sign out" href="#/signout" >Sign Out</NavDropdown.Item>
-              </NavDropdown>
-            )}
-          </Nav>
-        </Container>
-      </Navbar>
+        </div>
     );
   }
 }

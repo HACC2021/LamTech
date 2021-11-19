@@ -46,7 +46,7 @@ export default class Signin extends React.Component {
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
             <Header as="h2" textAlign="center">
-              Login to your Admin Account
+              Login in as Admin/Staff
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
@@ -73,6 +73,8 @@ export default class Signin extends React.Component {
                 <Form.Button id="signin-form-submit" content="Submit"/>
               </Segment>
             </Form>
+            <br/>
+            <a className='backhomeText' href="/">Back to Homepage</a>
             {this.state.error === '' ? (
               ''
             ) : (

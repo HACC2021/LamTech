@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Header, Loader, Input } from 'semantic-ui-react';
 import { GoogleMap, InfoWindow, Marker, useLoadScript } from '@react-google-maps/api';
 import PropTypes from 'prop-types';
-import { Card } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
 
 const containerStyle = {
   width: '100%',
@@ -40,7 +40,7 @@ export default function Geo({ parentToChild }) {
               onCloseClick={() => { setSelected(null); }}
             >
               <Card>
-                <Card.Img variant="top" src={selected.image} />
+                <Card.Img width={150} height={300} variant="top" src={selected.image} />
                 <Card.Body>
                   <Card.Title>{selected.animal} spotted here</Card.Title>
                   <Card.Text>

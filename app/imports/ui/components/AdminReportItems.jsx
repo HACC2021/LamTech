@@ -23,7 +23,7 @@ class AdminReportItems extends React.Component {
         <Table.HeaderCell>{this.props.report.characteristics}</Table.HeaderCell>
         <Table.HeaderCell>{this.props.report.beachGoers}</Table.HeaderCell>
         <Table.HeaderCell><Image width={180} height={180} src={this.props.report.image}/></Table.HeaderCell>
-        <Table.HeaderCell><Icon className='trashCan' size='small' color='red' onClick={() => this.handleClick(this.props.report._id)} name='trash'/></Table.HeaderCell>
+        <Table.HeaderCell><Icon className='trashCan' size='big' color='red' onClick={() => this.handleClick(this.props.report._id)} name='trash'/></Table.HeaderCell>
       </Table.Row>
     );
   }

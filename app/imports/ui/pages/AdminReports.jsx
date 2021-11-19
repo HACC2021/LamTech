@@ -43,7 +43,7 @@ class AdminReports extends React.Component {
           <CSVLink
             data={this.props.report}
             onClick={() => {
-              console.log('You click the link'); // 👍🏻 Your click handling logic
+              console.log('You click the link');
             }}
           >
             Download me

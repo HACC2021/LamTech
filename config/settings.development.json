@@ -11,7 +11,7 @@
   ],
 
   "defaultReport": [
-    { "animal": "sea turtle","name": "chakhon", "phoneNumber": "123123", "email": "123123@aw.com", "location": "123123", "behavior": "123123", "characteristics": "123123" }
+    { "animal": "sea turtle","name": "chakhon", "phoneNumber": "123123", "email": "123123@aw.com", "location": "123123", "latitude" : 21.347564446366214, "longitude" : -157.91027176448088, "behavior": "123123", "characteristics": "123123" }
   ]
 
 }

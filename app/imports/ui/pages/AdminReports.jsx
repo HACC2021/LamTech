@@ -17,7 +17,7 @@ class AdminReports extends React.Component {
   renderPage() {
     return (
       <div className='AdminPage'>
-        <Geo/>
+        <Geo parentToChild={this.props.report}/>
         <Header as="h1" textAlign="center">Submitted Forms</Header>
         <Container>
           <Table padded>

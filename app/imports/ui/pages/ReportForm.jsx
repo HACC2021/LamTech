@@ -30,8 +30,8 @@ class ReportForm extends React.Component {
     this.state = {
       date: new Date(),
       address: '',
-      lat: '',
-      lng: '',
+      lat: 0,
+      lng: 0,
       image: '',
       check: false,
       redirectToReferer: false,
@@ -82,8 +82,8 @@ class ReportForm extends React.Component {
   }
 
   submit(data) {
-    const { animal, name, phoneNumber, email, date, location, longitude, latitude, behavior, characteristics, beachGoers, image } = data;
-    Reports.collection.insert({ animal, name, phoneNumber, email, date, location, longitude, latitude, behavior, characteristics, beachGoers, image },
+    const { animal, name, phoneNumber, email, date, location, latitude, longitude, behavior, characteristics, beachGoers, image } = data;
+    Reports.collection.insert({ animal, name, phoneNumber, email, date, location, latitude, longitude, behavior, characteristics, beachGoers, image },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader, Grid } from 'semantic-ui-react';
+import { Container, Table, Header, Loader, Dropdown } from 'semantic-ui-react';
 import { Form } from 'react-bootstrap';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -20,6 +20,7 @@ class AdminReports extends React.Component {
       checkDolphin: true,
       checkWhale: true,
       checkBird: true,
+      value: 'All',
     };
 
     this.handleCheckSeal = this.handleCheckSeal.bind(this);
@@ -32,6 +33,8 @@ class AdminReports extends React.Component {
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
+
+  onSort = (e, { value }) => this.setState({ value })
 
   handleCheckSeal(evt) {
     this.setState({ checkSeal: evt.target.checked });
@@ -55,6 +58,49 @@ class AdminReports extends React.Component {
 
   renderPage() {
     let reportData = this.props.report;
+    const value = this.state.value;
+    const today = new Date();
+    let sortDate = today;
+
+    const sortOptions = [
+      {
+        key: 'All',
+        text: 'All',
+        value: 'All',
+      },
+      {
+        key: 'Last 7 days',
+        text: 'Last 7 days',
+        value: 'Last 7 days',
+      },
+      {
+        key: 'Last 30 days',
+        text: 'Last 30 days',
+        value: 'Last 30 days',
+      },
+      {
+        key: 'Last 365 days',
+        text: 'Last 365 days',
+        value: 'Last 365 days',
+      },
+    ];
+
+    switch (value) {
+    case 'Last 7 days':
+      sortDate = sortDate.setDate(today.getDate() - 7);
+      reportData = _.reject(reportData, function (reports) { return reports.date.getTime() < new Date(sortDate).getTime(); });
+      break;
+    case 'Last 30 days':
+      sortDate = sortDate.setDate(today.getDate() - 30);
+      reportData = _.reject(reportData, function (reports) { return reports.date.getTime() < new Date(sortDate).getTime(); });
+      break;
+    case 'Last 365 days':
+      sortDate = sortDate.setDate(today.getDate() - 365);
+      reportData = _.reject(reportData, function (reports) { return reports.date.getTime() < new Date(sortDate).getTime(); });
+      break;
+    default:
+    }
+
     if (!this.state.checkSeal) {
       reportData = _.reject(reportData, function (reports) { return reports.animal === 'Hawaiian Monk Seals'; });
     }
@@ -82,6 +128,13 @@ class AdminReports extends React.Component {
             <Form.Check inline type="checkbox" label="Humpback Whales" checked={this.state.checkWhale} onChange={this.handleCheckWhale}/>
             <Form.Check inline type="checkbox" label="Hawaii's Seabirds" checked={this.state.checkBird} onChange={this.handleCheckBird}/>
           </Form.Group>
+          <Dropdown
+            selection
+            options={sortOptions}
+            defaultValue={sortOptions[0].text}
+            value={value}
+            onChange={this.onSort}
+          />
         </Container>
         <Header as="h1" textAlign="center">Submitted Forms</Header>
         <Container>

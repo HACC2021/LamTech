@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Container, Header, Loader, Input } from 'semantic-ui-react';
+import { Container, Loader } from 'semantic-ui-react';
 import { GoogleMap, InfoWindow, Marker, useLoadScript } from '@react-google-maps/api';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const containerStyle = {
   width: '100%',

@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter } from 'react-router-dom';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
   render() {
     return (
-        <div>
-          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            [<Navbar fixed="top" bg="black" variant="dark">
-              <Container><Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>,
-              <Nav.Link href="#/signout" key='admin'>Sign Out</Nav.Link></Container>
-            </Navbar>]
-          ) : ''}
-        </div>
+      <div>
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+          [<Navbar key='Navbar' fixed="top" bg="black" variant="dark">
+            <Container><Nav.Link href="#/admin" key='admin'>Admin</Nav.Link>,
+              <Nav.Link href="#/signout" key='signout'>Sign Out</Nav.Link></Container>
+          </Navbar>]
+        ) : ''}
+      </div>
     );
   }
 }

@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Form, Button, Container, Spinner, Image, Card } from 'react-bootstrap';
+import { Form, Button, Container, Spinner, Image } from 'react-bootstrap';
 import {
   AutoForm,
   ErrorsField,

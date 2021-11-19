@@ -21,7 +21,7 @@ import { Reports } from '../../api/report/Report';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const bridge = new SimpleSchema2Bridge(Reports.schema);
-Geocode.setApiKey('AIzaSyDE0DdeQlWnwN0IggkY4GMD_SniLR_3ZhA');
+Geocode.setApiKey('');
 
 class ReportForm extends React.Component {
   constructor(props) {

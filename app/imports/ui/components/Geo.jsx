@@ -22,7 +22,6 @@ export default function Geo({ parentToChild }) {
   console.log(parentToChild);
   return (
     <Container>
-      <Header>Filter   <Input placeholder='Animal Name'/></Header>
       { isLoaded ?
         <GoogleMap
           mapContainerStyle={containerStyle}

@@ -50,7 +50,7 @@ class AdminReports extends React.Component {
   }
 
   handleCheckBird(evt) {
-    this.setState({ Seabird: evt.target.checked });
+    this.setState({ checkBird: evt.target.checked });
   }
 
   renderPage() {
@@ -74,13 +74,15 @@ class AdminReports extends React.Component {
     return (
       <div className='AdminPage'>
         <Geo parentToChild={reportData}/>
-        <Form.Group>
-          <Form.Check inline type="checkbox" label="Hawaiian Monk Seals" checked={this.state.checkSeal} onChange={this.handleCheckSeal}/>
-          <Form.Check inline type="checkbox" label="Hawaii’s Sea Turtles" checked={this.state.checkTurtle} onChange={this.handleCheckTurtle}/>
-          <Form.Check inline type="checkbox" label="Spinner Dolphins" checked={this.state.checkDolphin} onChange={this.handleCheckDolphin}/>
-          <Form.Check inline type="checkbox" label="Humpback Whales" checked={this.state.checkWhale} onChange={this.handleCheckWhale}/>
-          <Form.Check inline type="checkbox" label="Hawaii's Seabirds" checked={this.state.checkBird} onChange={this.handleCheckBird}/>
-        </Form.Group>
+        <Container className="textsize" textAlign={'center'}>
+          <Form.Group>
+            <Form.Check inline type="checkbox" label="Hawaiian Monk Seals" checked={this.state.checkSeal} onChange={this.handleCheckSeal}/>
+            <Form.Check inline type="checkbox" label="Hawaii’s Sea Turtles" checked={this.state.checkTurtle} onChange={this.handleCheckTurtle}/>
+            <Form.Check inline type="checkbox" label="Spinner Dolphins" checked={this.state.checkDolphin} onChange={this.handleCheckDolphin}/>
+            <Form.Check inline type="checkbox" label="Humpback Whales" checked={this.state.checkWhale} onChange={this.handleCheckWhale}/>
+            <Form.Check inline type="checkbox" label="Hawaii's Seabirds" checked={this.state.checkBird} onChange={this.handleCheckBird}/>
+          </Form.Group>
+        </Container>
         <Header as="h1" textAlign="center">Submitted Forms</Header>
         <Container>
           <Table padded>

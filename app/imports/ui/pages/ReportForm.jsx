@@ -94,7 +94,8 @@ class ReportForm extends React.Component {
             'LamTech <lamtechmailguy@gmail.com>',
             'lamtechmailguy@gmail.com',
             (`A new ${animal} sighting has been reported`),
-            (`Animal: ${animal}\n
+            (`
+            Animal: ${animal}\n
             Reporter: ${name}\n
             Reporter phone#: ${phoneNumber}\n
             Reporter email: ${email}\n
@@ -104,6 +105,7 @@ class ReportForm extends React.Component {
             Behavior: ${behavior}\n
             Characteristics: ${characteristics}\n
             # of onlookers: ${beachGoers}\n
+            To see more detail log-in to https://reportsight.meteorapp.com/#/signin
             `),
           );
           this.setState({ redirectToReferer: true });

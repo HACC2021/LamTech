@@ -57,7 +57,7 @@ class AdminReports extends React.Component {
   }
 
   renderPage() {
-    let reportData = this.props.report;
+    let reportData = this.props.report.reverse();
     const value = this.state.value;
     const today = new Date();
     let sortDate = today;

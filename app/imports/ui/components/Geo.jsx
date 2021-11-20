@@ -16,7 +16,7 @@ const center = {
 
 export default function Geo({ parentToChild }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: '',
+    googleMapsApiKey: 'AIzaSyDE0DdeQlWnwN0IggkY4GMD_SniLR_3ZhA',
   });
   const [selected, setSelected] = useState(null);
   console.log(parentToChild);

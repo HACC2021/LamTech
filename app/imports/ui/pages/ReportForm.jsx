@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
-import { Form, Button, Container, Spinner, Image } from 'react-bootstrap';
+import { Form, Button, Container, Spinner, Image, Card } from 'react-bootstrap';
 import {
   AutoForm,
   ErrorsField,
@@ -21,7 +21,7 @@ import { Reports } from '../../api/report/Report';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const bridge = new SimpleSchema2Bridge(Reports.schema);
-Geocode.setApiKey('');
+Geocode.setApiKey('AIzaSyDE0DdeQlWnwN0IggkY4GMD_SniLR_3ZhA');
 
 class ReportForm extends React.Component {
   constructor(props) {
@@ -32,7 +32,7 @@ class ReportForm extends React.Component {
       address: '',
       lat: 0,
       lng: 0,
-      image: '',
+      image: 'https://content.hostgator.com/img/weebly_image_sample.png',
       check: false,
       redirectToReferer: false,
     };
@@ -123,9 +123,9 @@ class ReportForm extends React.Component {
       return <Redirect to='/'/>;
     }
     return (
-      <Container className='AdminPage'>
+      <Container className='FormPage'>
         <h1>Report Sighting of {animal}</h1>
-        <Image src={this.state.image}/>
+        <Image width={350} height={350} src={this.state.image}/>
         <Form.Group widths={'equal'}>
           <Form.Label>Upload a image</Form.Label>
           <Form.Control
